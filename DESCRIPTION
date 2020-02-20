@@ -1,13 +1,12 @@
 Package: flaky
-Title: What the Package Does (One Line, Title Case)
+Title: Wrapper around an ODBC connection to SnowflakeDB and dbplyr backend.
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Nicholas",
+           family = "DiQuattro",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "ndiquattro@gmail.com")
+Description: Provide a dbplyr backend and convience functions for interacting with SnowflakeDB via ODBC.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
