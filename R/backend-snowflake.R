@@ -1,3 +1,7 @@
+#' Snowflake Backend for dbplyr
+#'
+#' @param con Connection object to use
+#'
 #' @export
 sql_translate_env.Snowflake <- function(con) {
   dbplyr::sql_variant(

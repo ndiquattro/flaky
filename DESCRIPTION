@@ -1,5 +1,5 @@
 Package: flaky
-Title: Wrapper around an ODBC connection to SnowflakeDB and dbplyr backend.
+Title: Wrapper around an ODBC connection to SnowflakeDB and dbplyr backend
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Nicholas",
@@ -14,3 +14,9 @@ URL: https://github.com/ndiquattro/flaky
 BugReports: https://github.com/ndiquattro/flaky/issues
 Suggests: 
     testthat (>= 2.1.0)
+RoxygenNote: 7.0.2
+Imports: 
+    odbc,
+    DBI,
+    dbplyr,
+    rlang
