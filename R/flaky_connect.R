@@ -1,29 +1,32 @@
-#' Create a connection to a Snowflake instance
+#'Create a connection to a Snowflake instance
 #'
-#' Connect to Snowflake using a DSN or connection string.
+#'Connect to Snowflake using a DSN or connection string.
 #'
-#' If using `connection_string` it should be defined in the following structure: `"<name>=<value>;<name2>=<value2>"`.
+#'If using `connection_string` it should be defined in the following structure:
+#'`"<name>=<value>;<name2>=<value2>"`.
 #'
-#' @param dsn Data Service Name as defined in `~/.odbc.ini`.
-#' @param connection_string Semi-colon separated string of key=value pairs. See Details for an example.
-#' @param set_default Set connection to default for session.
-#' @param ... Additional ODBC keywords, these will be joined with the other arguments to form the final connection string.
+#'@param dsn Data Service Name as defined in `~/.odbc.ini`.
+#'@param connection_string Semi-colon separated string of key=value pairs. See
+#'  Details for an example.
+#'@param set_default Set connection to default for session.
+#'@param ... Additional ODBC keywords, these will be joined with the other
+#'  arguments to form the final connection string.
 #'
-#' @return A connection object.
+#'@return A connection object.
 #'
-#' @author Nick DiQuattro
+#'@author Nick DiQuattro
 #'
-#' @family connection functions
+#'@family connection functions
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # For a DSN named warehouse
 #' con <- flaky_connect("warehouse")
 #'
 #' # If you need to temporarily connect to a different set of credentials
 #' other_con <- flaky_connect("warehouse_2", set_default = FALSE)
 #'}
-#' @export
+#'@export
 flaky_connect <- function(dsn = NULL, connection_string = NULL,
                           set_default = TRUE, ...) {
   # Check credentials type

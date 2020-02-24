@@ -9,11 +9,13 @@ flaky_connect(dsn = NULL, connection_string = NULL, set_default = TRUE, ...)
 \arguments{
 \item{dsn}{Data Service Name as defined in `~/.odbc.ini`.}
 
-\item{connection_string}{Semi-colon separated string of key=value pairs. See Details for an example.}
+\item{connection_string}{Semi-colon separated string of key=value pairs. See
+Details for an example.}
 
 \item{set_default}{Set connection to default for session.}
 
-\item{...}{Additional ODBC keywords, these will be joined with the other arguments to form the final connection string.}
+\item{...}{Additional ODBC keywords, these will be joined with the other
+arguments to form the final connection string.}
 }
 \value{
 A connection object.
@@ -22,10 +24,11 @@ A connection object.
 Connect to Snowflake using a DSN or connection string.
 }
 \details{
-If using `connection_string` it should be defined in the following structure: `"<name>=<value>;<name2>=<value2>"`.
+If using `connection_string` it should be defined in the following structure:
+`"<name>=<value>;<name2>=<value2>"`.
 }
 \examples{
-\donttest{
+\dontrun{
 # For a DSN named warehouse
 con <- flaky_connect("warehouse")
 
