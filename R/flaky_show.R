@@ -53,25 +53,12 @@ flaky_show <- function(type, pattern, n = 50, con = getOption("flaky.con")) {
 #'  flaky_show_ls() %>% slice(1) %>% pull(name) %>% flaky_show()
 #' }
 flaky_show_ls <- function(pattern) {
-  base_list <-
-    tibble(name =
-      httr::GET("https://docs.snowflake.net/manuals/sql-reference/sql/show.html") %>%
-      xml2::read_html() %>%
-      rvest::html_nodes("span[class=doc]") %>%
-      rvest::html_text() %>%
-      stringr::str_extract("SHOW .+") %>%
-      na.omit() %>%
-      stringr::str_remove("SHOW ") %>%
-      tolower() %>%
-      unique() %>%
-      sort()
-    )
+  show_url <- "https://docs.snowflake.net/manuals/sql-reference/sql/show.html"
+
+  base_list <- get_ls_opts(show_url, "^SHOW ")
 
   if (!missing(pattern)) {
-    return(
-      base_list %>%
-        dplyr::filter(stringr::str_detect(name, tolower(pattern)))
-    )
+    return(dplyr::filter(base_list, stringr::str_detect(name, tolower(pattern))))
   }
 
   base_list
