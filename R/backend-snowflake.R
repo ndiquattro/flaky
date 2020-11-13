@@ -3,7 +3,7 @@
 #' @param con Connection object to use
 #'
 #' @export
-sql_translate_env.Snowflake <- function(con) {
+sql_translation.Snowflake <- function(con) {
   dbplyr::sql_variant(
     base_snowflake_scalar,
     base_snowflake_agg,
