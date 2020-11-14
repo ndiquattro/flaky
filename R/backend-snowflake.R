@@ -2,6 +2,7 @@
 #'
 #' @param con Connection object to use
 #'
+#' @importFrom dbplyr sql_translation
 #' @export
 sql_translation.Snowflake <- function(con) {
   dbplyr::sql_variant(
@@ -10,6 +11,19 @@ sql_translation.Snowflake <- function(con) {
     base_snowflake_win
   )
 }
+
+
+#' @importFrom dbplyr dbplyr_edition
+#' @export
+dbplyr_edition.Snowflake <- function(con) {
+  2L
+}
+
+
+#' @export
+#' @rdname backend-snowflake
+simulate_snowflake <- function() simulate_dbi("Snowflake")
+
 
 base_snowflake_scalar <-
   dbplyr::sql_translator(
